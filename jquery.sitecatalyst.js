@@ -33,12 +33,14 @@
         defaults, element data-attrs, element data-attrs that've you've
         overridden with javascript. */
         
-        // Override the default set of tracking data with element specifc
-        // data-attrs
+        // Override the default set of tracking data with the set of data
+        // the client was instantiated with.
         var tracking_data = $.extend({
             'channel': 'Website',
             'pageName': window.document.URL + ': ' + window.document.title,
-        }, data_attrs(settings, element));
+        }, settings.default_data);
+        // Override our data with element data attrs
+        var tracking_data = $.extend(tracking_data, data_attrs(settings, element));
         
         console.info("Accumulated tracking data for",
                      settings.is_page ? window.document.URL : element,
@@ -68,7 +70,8 @@
     
     $.fn.sitecatalyst = function(options) {
         var settings = $.extend({
-            'data_attr_prefix': 'omniture_'
+            'data_attr_prefix': 'omniture_',
+            'default_data': {}
         }, options);
         settings.is_page = false;
         
