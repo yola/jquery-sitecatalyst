@@ -43,8 +43,10 @@
         var tracking_data = $.extend(tracking_data, data_attrs(settings, element));
         
         console.info("Accumulated tracking data for",
-                     settings.is_page ? window.document.URL : element,
-                     tracking_data);
+                     settings.is_page ? window.document.URL : element);
+        for (key in tracking_data) {
+            console.info(key,': ',tracking_data[key]);
+        }
         return tracking_data;
     }
     
