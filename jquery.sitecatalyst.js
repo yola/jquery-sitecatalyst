@@ -24,6 +24,7 @@
         name = name.replace(/pagename/i, 'pageName');
         name = name.replace(/purchaseid/i, 'purchaseID');
         name = name.replace(/evar/i, 'eVar');
+        name = name.replace(/sprop/i, 'sProp');
         return name;
     }
     
