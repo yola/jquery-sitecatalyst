@@ -2,7 +2,7 @@
     function data_attrs(settings, element) {
         /* Return the subset of data attrs whose name begin with the
         data_attr_prefix */
-        var data = $('body').data();
+        var data = $.extend({}, $('body').data());
         if (!settings.is_page){
             data = $.extend(data, $(element).data());
         }
