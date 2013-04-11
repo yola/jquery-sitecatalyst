@@ -12,7 +12,7 @@
         var prefix = settings.data_attr_prefix;
 
         for (var key in data) {
-            if(key.indexOf(prefix) === 0) {
+            if (key.indexOf(prefix) === 0) {
                 out[normalize_name(key.replace(prefix, ''))] = data[key];
             }
         }
